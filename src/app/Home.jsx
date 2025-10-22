@@ -10,7 +10,7 @@ export default function Home() {
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
-
+  console.log(countries)
   return (
     <div className="flex flex-col gap-6">
       <div className="flex justify-between items-center">
