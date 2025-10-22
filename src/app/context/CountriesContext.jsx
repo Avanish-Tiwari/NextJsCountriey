@@ -12,7 +12,7 @@ export function CountriesProvider({ children }) {
   useEffect(() => {
     async function fetchCountries() {
       try {
-        const response = await fetch("https://restcountries.com/v3.1/all");
+        const response = await fetch("https://restcountries.com/v3.1/all?fields=name,capital,population,flags,region,cca3,cca2,ccn3");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
