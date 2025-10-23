@@ -27,7 +27,7 @@ export function CountriesProvider({ children }) {
 
     fetchCountries();
   }, []);
-
+ 
   return (
     <CountriesContext.Provider value={{ countries, loading, error }}>
       {children}

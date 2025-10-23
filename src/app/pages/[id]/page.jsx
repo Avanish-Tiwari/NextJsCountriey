@@ -1,4 +1,5 @@
 
+import CountryPage from "@/app/ui/CountryPage";
 import Image from "next/image"
 export default async function Page({ params }) {
     const {id}= await params;
@@ -12,6 +13,7 @@ export default async function Page({ params }) {
         <Image width={500} height={300} src={data.flags.png} alt={data.flags.alt} />
         </div>
         <div className="p-10">
+            <CountryPage/>
         <p>{id}</p>
 
             </div>
