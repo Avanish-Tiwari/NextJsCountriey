@@ -3,7 +3,7 @@
 import Card from "./Card";
 import {useRouter} from "next/navigation"
 export default function Cards({ countries }) {
-  const router=useRouter();
+  const router=useRouter();  
   const handleClick = (e) => {
     // Prevent event bubbling
     e.stopPropagation();
