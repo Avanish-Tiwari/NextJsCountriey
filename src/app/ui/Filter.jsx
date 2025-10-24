@@ -8,8 +8,8 @@ export default function Filter({ handleRegion, selectedRegion, isDark }) {
     "Antarctic",
   ];
   return (
-    <div className="flex item-center gap-2 bg-inherit">
-      <label htmlFor="region" className="font-medium">
+    <div className="flex items-center gap-2 bg-inherit">
+      <label htmlFor="region" className="text-sm md:text-base">
         Filter by Region
       </label>
       <select

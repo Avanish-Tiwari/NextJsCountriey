@@ -17,7 +17,7 @@ export default function Cards({ countries,isDark }) {
   };
 
   return (
-    <div className={`grid grid-cols-4 gap-2.5`} onClick={handleClick}>
+    <div className={`grid grid-cols-3 sm:grid-cols-4 gap-2.5`} onClick={handleClick}>
         {countries.map((country) => (
         <Card key={crypto.randomUUID()} country={country} />
       ))}
