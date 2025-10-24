@@ -1,11 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useTheme } from "../context/ThemeContext";
+import Link from "next/link";
 
 export default function CountryDetails({ countryCode }) {
   const [countryData, setCountryData] = useState({});
   const [notFound, setNotFound] = useState(false);
   const router = useRouter();
+  const {isDark}=useTheme()
 
   const handleClick = (e) => {
     e.stopPropagation();
@@ -79,6 +82,17 @@ export default function CountryDetails({ countryCode }) {
   if (notFound) {
     return (
       <div className="flex h-screen items-center justify-center">
+        <Link
+      href="/"
+      className={`text-sm px-3 py-1 rounded-md border transition
+        ${
+          isDark
+            ? "bg-gray-800 hover:bg-gray-700 text-gray-100 border-gray-600"
+            : "bg-gray-100 hover:bg-gray-200 text-gray-800 border-gray-300"
+        }`}
+    >
+      Back
+    </Link>
         <h2 className="text-xl font-semibold text-gray-700">
           Country Not Found
         </h2>
@@ -87,8 +101,20 @@ export default function CountryDetails({ countryCode }) {
   }
 
   return (
-    <main className="flex justify-center px-6 py-3 bg-gray-50 ">
-      <div className="max-w-5xl w-full bg-white rounded-2xl shadow-md p-8 flex flex-col md:flex-row gap-10">
+    <main className={`flex-1 p-3 overflow-hidden ${ isDark ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
+        <Link
+      href="/"
+      className={`text-sm m-2 px-3 py-1 rounded-md border transition
+        ${
+          isDark
+            ? "bg-gray-800 hover:bg-gray-700 text-gray-100 border-gray-600"
+            : "bg-gray-100 hover:bg-gray-200 text-gray-800 border-gray-300"
+        }`}
+    >
+      Back
+    </Link>
+    <div className="flex h-full justify-center px-6 py-3 bg-gray-50 bg-inherit">
+      <div className={`max-w-5xl w-full rounded-2xl shadow-md p-8 flex flex-col md:flex-row gap-10 `}>
         {/* Flag Section */}
         <div className="w-full md:w-1/2 flex justify-center items-center">
           {countryData.flag && (
@@ -102,11 +128,11 @@ export default function CountryDetails({ countryCode }) {
 
         {/* Details Section */}
         <div className="w-full md:w-1/2 flex flex-col gap-4">
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold ">
             {countryData.name}
           </h1>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-gray-700">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 ">
             <p>
               <span className="font-semibold">Native Name: </span>
               {countryData.nativeName}
@@ -155,7 +181,11 @@ export default function CountryDetails({ countryCode }) {
                   <span
                     key={border.code}
                     id={border.code}
-                    className="bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm px-3 py-1 rounded-md border border-gray-300 transition"
+                    className={` text-sm px-3 py-1 rounded-md border border-gray-300 transition ${
+          isDark
+            ? "bg-gray-800 hover:bg-gray-700 text-gray-100 border-gray-600"
+            : "bg-gray-100 hover:bg-gray-200 text-gray-800 border-gray-300"
+        }`}
                   >
                     {border.name}
                   </span>
@@ -166,6 +196,7 @@ export default function CountryDetails({ countryCode }) {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </main>
   );
