@@ -2,7 +2,7 @@
 
 import Card from "./Card";
 import {useRouter} from "next/navigation"
-export default function Cards({ countries }) {
+export default function Cards({ countries,isDark }) {
   const router=useRouter();  
   const handleClick = (e) => {
     // Prevent event bubbling
@@ -17,7 +17,7 @@ export default function Cards({ countries }) {
   };
 
   return (
-    <div className="grid grid-cols-4 gap-2.5" onClick={handleClick}>
+    <div className={`grid grid-cols-4 gap-2.5`} onClick={handleClick}>
         {countries.map((country) => (
         <Card key={crypto.randomUUID()} country={country} />
       ))}

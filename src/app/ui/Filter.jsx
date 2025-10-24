@@ -1,4 +1,4 @@
-export default function Filter({ handleRegion, selectedRegion }) {
+export default function Filter({ handleRegion, selectedRegion, isDark }) {
   const regions = [
     "Europe",
     "Americas",
@@ -8,11 +8,16 @@ export default function Filter({ handleRegion, selectedRegion }) {
     "Antarctic",
   ];
   return (
-    <div className="flex item-center gap-2">
+    <div className="flex item-center gap-2 bg-inherit">
       <label htmlFor="region" className="font-medium">
         Filter by Region
       </label>
       <select
+      className={`text-sm px-3 py-1 rounded-md border transition ${
+          isDark
+            ? "bg-gray-800 hover:bg-gray-700 text-gray-100 border-gray-600"
+            : "bg-gray-100 hover:bg-gray-200 text-gray-800 border-gray-300"
+        }`}
         id="region"
         value={selectedRegion || ""}
         onChange={(e) => handleRegion(e.target.value || null)}

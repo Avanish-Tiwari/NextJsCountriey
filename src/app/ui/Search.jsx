@@ -15,7 +15,7 @@ export default function Search({handleSearch,searchTerm}) {
     <FontAwesomeIcon icon={faMagnifyingGlass} style={{width: "16px", height: "16px"}}/>
 
    
-    <input onChange={(e)=>setQuery(e.target.value)} value={query} type="text" placeholder="Search for a country..." className="outline-none text-sm" />
+    <input id="inputText" onChange={(e)=>setQuery(e.target.value)} value={query} type="text" placeholder="Search for a country..." className="outline-none text-sm text-teal-700" />
   </div>;
 }
 
