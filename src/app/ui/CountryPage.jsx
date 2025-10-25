@@ -101,7 +101,7 @@ export default function CountryDetails({ countryCode }) {
   }
 
   return (
-    <main className={`flex-1 p-3 overflow-hidden ${ isDark ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
+    <main className={`flex-1 p-3 ${ isDark ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
         <Link
       href="/"
       className={`text-sm m-2 px-3 py-1 rounded-md border transition
